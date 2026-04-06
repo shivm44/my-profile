@@ -605,6 +605,83 @@
     margin: 0 auto;
   }
 
+  /* ── RESUME SECTION ── */
+  .resume-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .resume-preview {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .resume-preview:hover { border-color: var(--accent); }
+
+  .resume-preview::after {
+    content: 'PDF';
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--accent3);
+    border: 1px solid var(--accent3);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .resume-doc-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+  .resume-doc-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+
+  .resume-doc-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .resume-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  .resume-highlights { display: flex; flex-direction: column; gap: 1rem; }
+
+  .resume-highlight-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    transition: all 0.3s;
+  }
+  .resume-highlight-item:hover { border-color: var(--accent); border-left-color: var(--accent2); }
+
+  .rh-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .rh-value { font-size: 0.88rem; color: var(--text); font-weight: 600; }
+
+  .resume-note {
+    margin-top: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    border: 1px dashed var(--border);
+    padding: 0.8rem 1rem;
+    line-height: 1.7;
+  }
+  .resume-note span { color: var(--accent); }
+
   /* ── RESPONSIVE ── */
   .contact-professional {
     display: grid;
@@ -681,6 +758,7 @@
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
     .achievements-list { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
+    .resume-wrapper { grid-template-columns: 1fr; }
     h2 { font-size: 2rem; }
   }
 </style>
@@ -695,6 +773,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#achievements">Wins</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#resume" style="color:var(--accent);">Resume ↓</a></li>
   </ul>
 </nav>
 
@@ -715,6 +794,7 @@
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
       <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <a href="#resume" class="btn btn-ghost" style="border-color:var(--accent3);color:var(--accent3);">⬇ Resume</a>
     </div>
   </div>
   <div class="scroll-hint">
@@ -954,9 +1034,83 @@
 
 <hr class="divider">
 
+<!-- RESUME -->
+<section id="resume">
+  <div class="section-label">04 — Resume</div>
+  <h2>Download My CV</h2>
+
+  <div class="resume-wrapper">
+
+    <!-- LEFT: Document card -->
+    <div class="resume-preview reveal">
+      <span class="resume-doc-icon">📄</span>
+      <div class="resume-doc-title">Shivam_Kumar_CV.pdf</div>
+      <div class="resume-doc-meta">
+        LAST UPDATED &nbsp;·&nbsp; 2025<br>
+        MCA STUDENT &nbsp;·&nbsp; AI / ML ENGINEER<br>
+        GURU GHASIDAS CENTRAL UNIVERSITY
+      </div>
+      <div class="resume-actions">
+        <a href="Shivam_Kumar_CV.pdf" download="Shivam_Kumar_CV.pdf"
+           class="btn btn-primary" style="font-size:0.72rem;padding:0.8rem 1.5rem;">
+          ⬇ Download PDF
+        </a>
+        <a href="Shivam_Kumar_CV.pdf" target="_blank" rel="noopener noreferrer"
+           class="btn btn-ghost" style="font-size:0.72rem;padding:0.8rem 1.5rem;">
+          👁 Preview
+        </a>
+      </div>
+      <div class="resume-note">
+        <span>// Note:</span> Upload <code>Shivam_Kumar_CV.pdf</code> to the same folder as
+        <code>index.html</code> when deploying. The download link will work automatically.
+      </div>
+    </div>
+
+    <!-- RIGHT: Resume highlights -->
+    <div class="resume-highlights reveal">
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Current Status</div>
+        <div class="rh-value">🟢 Actively seeking AI/ML Internship</div>
+      </div>
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Education</div>
+        <div class="rh-value">MCA — Guru Ghasidas Central University (2025–2027)</div>
+      </div>
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Core Skills</div>
+        <div class="rh-value">Python · TensorFlow · Flask · NumPy · Pandas · GenAI</div>
+      </div>
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Featured Project</div>
+        <div class="rh-value">AI Helpdesk — 30% faster query resolution at GGV</div>
+      </div>
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Top Achievement</div>
+        <div class="rh-value">Neural network error rate: 40% → 15% (↓ 62.5%)</div>
+      </div>
+
+      <div class="resume-highlight-item">
+        <div class="rh-label">// Preferred Contact</div>
+        <div class="rh-value">
+          <a href="https://in.linkedin.com/in/shivm44" target="_blank" rel="noopener noreferrer"
+             style="color:var(--accent);text-decoration:none;">linkedin.com/in/shivm44 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" style="justify-content:center;">04 — Contact</div>
+  <div class="section-label" style="justify-content:center;">05 — Contact</div>
   <h2>Let's Build Together</h2>
   <p class="contact-sub">
     Open to AI/ML internships. Reach out professionally via the channels below.
@@ -1012,14 +1166,12 @@
 
 </section>
 
-<!-- FOOTER but not in use -->
-
-<!--
+<!-- FOOTER -->
 <footer>
   <span>© 2025 SHIVAM KUMAR</span> &nbsp;·&nbsp;
   <span>BUILT WITH HTML + CSS + JS &nbsp;·&nbsp; PYTHON AT HEART</span>
 </footer>
--->
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ════ ROT13 DECODER — Email Obfuscation ════
   // The actual email is never stored in plain text in the HTML.
@@ -1100,7 +1252,7 @@
 </script>
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 SHIVAM KUMAR</span> &nbsp;·&nbsp;
+  <span>© 2025 SHIVAM KUMAR</span> &nbsp;·&nbsp;
   <span>BUILT WITH HTML + CSS + JS &nbsp;·&nbsp; PYTHON AT HEART &nbsp;·&nbsp; 🔒 PRIVACY PROTECTED</span>
 </footer>
 </body>
